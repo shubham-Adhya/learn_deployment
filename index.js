@@ -9,14 +9,14 @@ const cors=require("cors")
 const app=express()
 app.use(express.json())
 app.use(cors())
-app.get("/",(req,res)=>{
-    res.send("Welcome")
-})
+
 app.use("/users",userRouter)
 
 app.use(auth)
 app.use("/notes",noteRouter)
-
+app.get("/",(req,res)=>{
+    res.send("Welcome")
+})
 
 app.listen(process.env.port,async()=>{
     try {
